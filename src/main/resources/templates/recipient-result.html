@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8">
+    <title>Your Profile</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link rel="stylesheet" th:href="@{/myCSS.css}" href="css/myCSS.css"/>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon">
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<!--==========================
+Header
+============================-->
+<header id="header">
+
+    <div class="container">
+
+        <div class="logo float-left">
+            <h1 class="text-light"><a href="/" class="scrollto"><span>Virtual Wallet</span></a></h1>
+        </div>
+
+        <nav class="main-nav float-right d-none d-lg-block">
+            <ul>
+                <li><h2><a sec:authorize="isAuthenticated()" href="/user">Show User Profile &nbsp</a></h2></li>
+                <li><a href="/login" sec:authorize="!isAuthenticated()" >Log In</a></li>
+                <li><a align = "right" href="/register" sec:authorize="!isAuthenticated()" >Sign Up</a></li>
+                <li><a href="/logout" sec:authorize="isAuthenticated()">Log Out</a></li>
+            </ul>
+        </nav>
+    </div>
+    <br><br><br>
+    <div class="container">
+        <nav class="main-nav float-left d-none d-lg-block">
+            <ul>
+
+                <li>
+                    <div class="dropdown">
+                        <a style="color: #0056b3; cursor: pointer" class="btn btn-default"
+                           onclick="document.getElementById('direction-section')
+                           .style.display='block'">Filter by Direction &nbsp</a>
+
+                        <div style="display: none" id="direction-section" class="dropdown-content">
+                            <a onclick="document.getElementById('direction-section')
+                            .style.display='none'" href="/user/transaction/history">All</a>
+                            <a onclick="document.getElementById('direction-section')
+                            .style.display='none'" href="/user/sender/history">Outgoing</a>
+                            <a onclick="document.getElementById('direction-section')
+                            .style.display='none'" href="/user/receiver/history">Incoming</a>
+                        </div>
+
+                    </div>
+                </li>
+
+                <li>
+
+                    <div class="dropdown">
+                        <a style="color: #0056b3; cursor: pointer" class="btn btn-default"
+                           onclick="document.getElementById('sort-section')
+                           .style.display='block'">Sort by &nbsp</a>
+
+                        <div style="display: none" id="sort-section" class="dropdown-content">
+                            <a onclick="document.getElementById('sort-section')
+                            .style.display='none'" href="/user/transaction/history">Date</a>
+                            <a onclick="document.getElementById('sort-section')
+                            .style.display='none'" href="/user/transaction/history/amount">Amount</a>
+                        </div>
+
+                    </div>
+
+
+                </li>
+
+                <li>
+                    <div class="dropdown">
+                        <a style="color: #0056b3; cursor: pointer" class="btn btn-default"
+                           onclick="document.getElementById('user-section')
+                           .style.display='block'">Filter by User &nbsp</a>
+
+                        <div style="display: none" id="user-section" class="dropdown-content">
+                            <form th:action="@{/recipient-result}" th:method="post">
+                                <label>Find recipient: &nbsp</label>
+                                <input type="text" id="search" name="search"  placeholder="Search">
+                                <input onclick="document.getElementById('user-section')
+                                .style.display='none'" type="submit">
+                            </form>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="dropdown">
+                        <a style="color: #0056b3; cursor: pointer" class="btn btn-default"
+                           onclick="document.getElementById('date-section')
+                           .style.display='block'">Filter by Date &nbsp</a>
+
+                        <div style="display: none" id="date-section" class="dropdown-content">
+                            <form th:action="@{/get/transaction/by/period}" th:method="get">
+                                From: &nbsp<input type="datetime-local" name="start" id="start">
+                                To: &nbsp<input type="datetime-local" name="end" id="end">
+                                <input onclick="document.getElementById('date-section')
+                                .style.display='none'" type="submit">
+                            </form>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </nav><!-- .main-nav -->
+
+    </div>
+</header><!-- #header -->
+
+<!--==========================
+  Intro Section
+============================-->
+<section id="intro" class="clearfix">
+    <div class="container d-flex h-100">
+        <div class="row justify-content-center align-self-center">
+            <div class="col-md-6 intro-info order-md-first order-last">
+
+                <section id="services" class="section-bg" style="position: absolute; left: 1.5vw; top: -15vh;">
+                    <div class="container">
+                        <div class="row">
+                            <div  data-wow-duration="1.4s" >
+                                <table class="center">
+                                    <tr th:width="500" th:height="50">
+                                        <th>Sender</th>
+                                        <th>Receiver</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                    </tr>
+                                    <tr th:each="transaction : ${transactionList}">
+                                        <td class="cell" th:text="${transaction.getSender().getFirstName() + ' ' +
+                                                    transaction.getSender().getLastName() }">Sender</td>
+                                        <td class="cell" th:text="${transaction.getReceiver().getFirstName() + ' ' +
+                                                    transaction.getReceiver().getLastName() }">Receiver </td>
+
+                                        <td class="cell" th:text="'$' + ${transaction.amount}">Amount</td>
+                                        <td class="cell" th:text="${transaction.changeDateFormat(transaction.date)}" >Date</td>
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <ul class="pagination pull-left" style="margin: -3px">
+
+                            <li class="page-item" th:each="pageNumber: ${#numbers.sequence(1, totalPages)}">
+                                <a class="page-link" th:href="@{/recipient-result(page=${pageNumber}-1)}" th:text="${pageNumber}"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/mobile-nav/mobile-nav.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/isotope/isotope.pkgd.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+<script src="contactform/contactform.js"></script>
+
+<script>
+    function form() {
+        document.getElementById("form").value;
+    }
+</script>
+
+<!-- Template Main Javascript File -->
+<script src="js/main.js"></script>
+</body>
+</html>

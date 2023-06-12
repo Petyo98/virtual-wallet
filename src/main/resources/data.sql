@@ -1,0 +1,136 @@
+----use `virtual-wallet-db`;
+--
+--
+--INSERT INTO `users` (`username`, `password`, `first_name`, `last_name`, `email`, `phone_number`, `profile_picture`, `identified`, `blocked`)
+--VALUES
+--('admin', '$2a$10$zYOXuTquh1I8;TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Admin', 'Adminov', 'admin@adminov.com', '0888123456', '/uploads/admin.jpg' , true, false),
+--('rbohlsen0', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Reggi', 'Bohlsen', 'rbohlsen0@a8.net', '0885898965', '/uploads/user1.jpg' , true, false),
+--('khagergham1', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Kristofor', 'Hagergham', 'khagergham1@yellowbook.com', '0888642854', '/uploads/user2.jpg', true, false),
+--('kricioppo2', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Katherine', 'Ricioppo', 'kricioppo2@wikimedia.org', '0887256359', '/uploads/user11.jpg', true, false),
+--('aroyston3', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Ainslie', 'Royston', 'aroyston3@umich.edu', '0889556412', '/uploads/user12.jpg', true, false),
+--('aholdworth4', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Alexis', 'Holdworth', 'aholdworth4@artisteer.com', '0887589415', '/uploads/user13.jpg', true, false),
+--('epancost5', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Ethelda', 'Pancost', 'epancost5@gnu.org', '0885475965', '/uploads/user14.jpg', true, false),
+--('lsibthorpe6', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Lesya', 'Sibthorpe', 'lsibthorpe6@about.com', '0887859144', '/uploads/user15.jpg', true, false),
+--('obygrave7', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Olag', 'Bygrave', 'obygrave7@cnn.com', '0885448572', '/uploads/user3.jpg', true, false),
+--('gnaton8', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Gearard', 'Naton', 'gnaton8@netscape.com', '0885886245', '/uploads/user4.jpg', true, false),
+--('cfollos9', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Carlo', 'Follos', 'cfollos9@wix.com', '0887589225', '/uploads/user5.jpg', true, false),
+--('ebeaa', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Etheline', 'Bea', 'ebeaa@mysql.com', '0887453621', '/uploads/user16.jpg', true, false),
+--('kboliverb', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Karalynn', 'Boliver', 'kboliverb@newyorker.com', '0885884156', '/uploads/user17.jpg', true, false),
+--('cinwoodc', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Cullie', 'Inwood', 'cinwoodc@technorati.com', '0885748542', '/uploads/user18.jpg', true, false),
+--('gzylbermannd', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'George', 'Zylbermann', 'gzylbermannd@jiathis.com', '0887562146', '/uploads/user6.jpg', true, false),
+--('eskippinge', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Eduardo', 'Skipping', 'eskippinge@biblegateway.com', '0888414575', '/uploads/user7.jpg', true, false),
+--('bmeelandf', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Benoit', 'Meeland', 'bmeelandf@blogtalkradio.com', '0885882143', '/uploads/user8.jpg', true, false),
+--('bjozaitisg', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Brandy', 'Jozaitis', 'bjozaitisg@tamu.edu', '0889563284', '/uploads/user19.jpg', true, false),
+--('mbrugemannh', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Melva', 'Brugemann', 'mbrugemannh@wix.com', '0887524114', '/uploads/user20.jpg', true, false),
+--('asinncocki', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Ambrosi', 'Sinncock', 'asinncocki@google.com.hk', '0887252661', '/uploads/user9.jpg', true, false),
+--('dguillardj', '$2a$10$zYOXuTquh1I8TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Domingo', 'Guillard', 'dguillardj@bizjournals.com', '0885148525', '/uploads/user10.jpg', true, false);
+--
+--INSERT INTO `authorities` (`username`, `authority`)
+--VALUES
+--('admin', 'ROLE_ADMIN'),
+--('rbohlsen0', 'ROLE_USER'),
+--('khagergham1', 'ROLE_USER'),
+--('kricioppo2', 'ROLE_USER'),
+--('aroyston3', 'ROLE_USER'),
+--('aholdworth4', 'ROLE_USER'),
+--('epancost5', 'ROLE_USER'),
+--('lsibthorpe6', 'ROLE_USER'),
+--('obygrave7', 'ROLE_USER'),
+--('gnaton8', 'ROLE_USER'),
+--('cfollos9', 'ROLE_USER'),
+--('ebeaa', 'ROLE_USER'),
+--('kboliverb', 'ROLE_USER'),
+--('cinwoodc', 'ROLE_USER'),
+--('gzylbermannd', 'ROLE_USER'),
+--('eskippinge', 'ROLE_USER'),
+--('bmeelandf', 'ROLE_USER'),
+--('bjozaitisg', 'ROLE_USER'),
+--('mbrugemannh', 'ROLE_USER'),
+--('asinncocki', 'ROLE_USER'),
+--('dguillardj', 'ROLE_USER');
+--
+--
+--INSERT INTO wallets (`user_id`, `amount`)
+--VALUES
+--(1, 5000.00),
+--(2, 50.00),
+--(3, 50.00),
+--(4, 50.00),
+--(5, 50.00),
+--(6, 50.00),
+--(7, 50.00),
+--(8, 50.00),
+--(9, 50.00),
+--(10, 50.00),
+--(11, 100.00),
+--(12, 100.00),
+--(13, 100.00),
+--(14, 100.00),
+--(15, 100.00),
+--(16, 100.00),
+--(17, 100.00),
+--(18, 100.00),
+--(19, 100.00),
+--(20, 500.00),
+--(21, 500.00);
+--
+--
+--INSERT INTO `cards` (`wallet_id`, `number`, `cardholder`, `expire_date`, `csv`)
+--VALUES
+--(1, '3567907769224374', 'Adminov', '01/21', 823),
+--(8, '3559043298174151', 'Ellgood', '12/19', 487),
+--(3, '3562239564918942', 'Engledow', '11/19', 742),
+--(9, '4936204943965289', 'O''Kane', '03/20', 868),
+--(7, '5602252104405139', 'Ambrosi', '01/20', 910),
+--(10, '3735730575114581', 'Dunphie', '06/20', 851),
+--(8, '6304644572847433', 'Browell', '04/20', 786),
+--(2, '4041372670737150', 'Harland', '09/19', 397),
+--(5, '4017952247211554', 'Lennon', '07/20', 202),
+--(11, '6709206155806171', 'Fanner', '05/20', 978),
+--(7, '3530958970336477', 'Drains', '04/20', 312),
+--(2, '3555771022399561', 'Bedwell', '06/20', 302),
+--(5, '5368653467439841', 'Dundredge', '07/19', 422),
+--(9, '3540156653292442', 'Vannoni', '11/20', 205),
+--(5, '4913987930189077', 'Bosher', '06/19', 831),
+--(4, '3567447134262718', 'Tudge', '01/21', 667),
+--(5, '3583051328513942', 'Adamowitz', '03/19', 520),
+--(7, '3583017006418522', 'Pinard', '11/20', 492),
+--(2, '4844234366272059', 'Annice', '08/19', 984),
+--(6, '3004556683528511', 'Coventon', '07/19', 727),
+--(8, '8191719279272827', 'Johnson', '03/20', 931);
+--
+--
+--INSERT INTO `transactions` (`sender_id`, `receiver_id`, `card_id`, `date`, `amount`)
+--VALUES
+--(7, 5, 2,'2020-01-29', 466.11),
+--(2, 7, 1,'2019-04-20', 1402.17),
+--(7, 4, 4,'2019-07-30', 501.0),
+--(9, 5, 5,'2019-05-08', 385.07),
+--(5, 10, 7,'2019-04-01', 189.58),
+--(6, 2, 1,'2019-11-14', 4190.84),
+--(7, 3, 2,'2019-08-20', 280.83),
+--(3, 2, 4,'2019-02-27', 25.77),
+--(8, 5, 5,'2019-11-16', 562.67),
+--(6, 4, 9,'2019-01-28', 878.57),
+--(3, 4, 7,'2019-04-17', 500.00),
+--(1, 8, 2,'2020-01-23', 989.88),
+--(11, 2, 8,'2019-12-14', 19.78),
+--(7, 9, 1,'2019-02-14', 883.58),
+--(5, 4, 1,'2019-12-26', 9416.14),
+--(1, 11, 4,'2019-02-12', 2667.12),
+--(4, 1, 6,'2019-05-09', 169.11),
+--(3, 1, 3,'2019-07-03', 99.34),
+--(10, 6, 1,'2019-06-29', 698.13),
+--(8, 3, 9,'2020-01-04', 4102.48);
+--
+INSERT INTO USERS (username, password, first_name, last_name, email, phone_number, profile_picture, identified, blocked)
+VALUES
+('admin', '$2a$10$zYOXuTquh1I8;TxL65Mt4AOZiAZEAJrg4WCR9cZ7VA2ju723VAGmHK', 'Admin', 'Adminov', 'admin@adminov.com', '0888123456', null , true, false);
+INSERT INTO authorities (username, authority)
+VALUES
+('admin', 'ROLE_ADMIN');
+INSERT INTO wallets (user_id, amount)
+VALUES
+(1, 5000.00);
+INSERT INTO cards (wallet_id, number, cardholder, expire_date, csv)
+VALUES (1, '3567907769224374', 'Adminov', '01/21', 823);
